@@ -1,0 +1,31 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="home.html#home">AlivioStripe</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a <%= link_to "Home", root_path %></a></li>
+              <li><a <%= link_to "About", about_path %></a></li>
+              <li><a <%= link_to "Contact", contact_path %></a></li>
+	      <% if signed_in? %>
+	      <li><a <%= link_to "Patients File", patients_path %></a></li>
+	      <li><a <%= link_to "New Patient", create_path %></a></li>
+	      <li><a <%= link_to "Reports", reports_path %></a></li>
+	      <li><a <%= link_to "Settings", edit_user_path(current_user) %></a></li>
+	    <% end %>
+            </ul>
+			  <% if signed_in? %>
+			  	<%= link_to "Sign out", signout_path, :class => "btn" %>
+			  <% else %>
+              	<%= link_to "Sign in", signin_path, :class => "btn" %>
+			  	<%= link_to "Sign up", signup_path, :class => "btn" %>
+			  <% end %>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>

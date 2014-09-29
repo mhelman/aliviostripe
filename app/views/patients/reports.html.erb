@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>"AlivioStripe" | <%= @title %></title>
+	</head>
+	<body>
+		<div class="container">
+
+	      <!-- Main hero unit for a primary marketing message or call to action -->
+	      <div class="hero-unit">
+	        <h1>AlivioStripe</h1>
+	        <p>Wearables for Physical Therapy </p>
+              </div>
+		<%= high_chart("my_id4", @chart) %>
+		<%= high_chart("my_id77", @h) %>
+                <script type="text/javascript">
+                $( document ).ready(function() {
+                  new Highcharts.Chart({
+                  chart: { renderTo: 'orders_chart' },
+                  title: { text: 'Orders by Day' },
+                  xAxis: { type: 'datetime' },
+                  yAxis: {
+                  title: { text: 'Dollars' }
+                  },
+                  series: [{
+                  pointInterval: <%= 1.day * 1000 %>,
+                  pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+                  data: [1, 2, 5, 7, 3]
+                }]
+              });
+            });
+          </script>
+	<div id="orders_chart" style="width: 560px; height: 300px;"></div>
+        <div id = "my_id77" style="width: 560px; height: 300px; "></div>
+	<div id = "my_id4" style="width: 560px; height: 300px; "></div>
+	<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+	<script>
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart:{
+                        renderTo:'container',
+                        type:'column'
+                    },
+                    title: { text: 'Campaign Budget' },
+                  xAxis: { type: 'datetime' },
+                  yAxis: {
+                  title: { text: 'Campaign budget' }
+                  },
+                    legend:{
+                        layout:'vertical',
+                        backgroundColor:'#FFFFFF',
+                        align:'left',
+                        verticalAlign:'top',
+                        x:100,
+                        y:70,
+                        floating:true,
+                        shadow:true
+                    },
+                    plotOptions:{
+                        column:{
+                            pointPadding:0.4,
+                            borderWidth:0
+                        }
+                    },
+                    series:[
+                        <% current_user.campaigns.each do |campaign| %>
+                        {
+                            name:'<%= campaign.name %>',
+                            data:[<%= campaign.campaign_budget%>]
+                        },
+                <% end %>
+                        
+                    ]
+                });
+		});
+        });
+	</script>
+	</body>
+</html>

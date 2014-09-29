@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>"AlivioStripe" | <%= @title %></title>
+	</head>
+	<body>
+		<div class="container">
+
+	      <!-- Main hero unit for a primary marketing message or call to action -->
+	      <div class="hero-unit">
+	        <h1>AlivioStripe</h1>
+	        <p>Wearables for Physical Therapy</p>
+	      	<%= simple_form_for @user do |f| %>
+			  <%= f.input :name, label: 'Your campaign name please' %>
+			  <%= f.input :targeting_string, label: 'Targeting Parameters' %>
+			  <%= f.submit "Save"%>
+			<% end %>
+	      </div>
+	</body>
+</html>

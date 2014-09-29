@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>"AlivioStripe" | <%= @title %></title>
+	</head>
+	<body>
+		<div class="container">
+
+	      <!-- Main hero unit for a primary marketing message or call to action -->
+	      <div class="hero-unit">
+	        <h1>AlivioStripe</h1>
+	        <p>Wearable for Physical Therapy</p>
+	      	<%= simple_form_for @user do |f| %>
+			  <%= f.input :keyword, label: 'Your Keyword please' %>
+			  <%= f.input :score, label: 'Score' %>
+			  <%= f.submit "Save"%>
+			<% end %>
+	      </div>
+	</body>
+</html>

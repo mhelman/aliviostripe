@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>"AlivioStripe" | <%= @title %></title>
+	</head>
+	<body>
+		<div class="container">
+
+	      <!-- Main hero unit for a primary marketing message or call to action -->
+	      <div class="hero-unit">
+	        <h1>AlivioStripe</h1>
+	        <p>Wearables for Physical Therapy</p>
+	      	<%= simple_form_for @patient do |f| %>
+			  <%= f.input :firstName, label: 'Your patient first name please' %>
+			  <%= f.input :lastName, label: 'Your patient last name please' %>
+			  <%= f.input :email, label: 'email' %>
+			  <%= f.input :addresssStreet, label: 'Street' %>
+			  <%= f.input :addresssCity, label: 'City' %>
+			  <%= f.input :addresssState, label: 'State' %>
+			  <%= f.input :addresssCountry, label: 'Country' %>
+			  <%= f.input :addresssZipcode, label: 'Zipcode' %>
+			  <%= f.input :insuranceCompany, label: 'Insurance' %>
+			  <%= f.submit "Create"%>
+			<% end %>
+	      </div>
+	</body>
+</html>

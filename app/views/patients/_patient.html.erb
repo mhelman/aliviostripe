@@ -1,0 +1,25 @@
+<tr>
+  <td class="patient">
+    <span class="name"><%= patient.firstName %></span>
+    <span class="name"><%= patient.lastName %></span>
+    <span class="name"><%= patient.email %></span>
+    <span class="name"><%= patient.addresssStreet %></span>
+    <span class="name"><%= patient.addresssCity %></span>
+    <span class="name"><%= patient.addresssState %></span>
+    <span class="name"><%= patient.addresssCountry %></span>
+    <span class="name"><%= patient.addresssZipcode %></span>
+    <span class="name"><%= patient.insuranceCompany %></span>
+    <span class="timestamp">
+      Created <%= time_ago_in_words(patient.created_at) %> ago.
+    </span>
+  </td>
+  <% user = patient.user rescue User.find(patient.user_id) %>
+  <% if current_user?(user) %>
+    <td>
+      <%= link_to "delete", patient, :method => :delete,
+                                       :confirm => "You sure?",
+                                       :title => patient.firstName %>
+    <br>
+    </td>
+  <% end %>
+</tr>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>"AlivioStripe" | <%= @title %></title>
+	</head>
+	<body>
+		<div class="container">
+
+	      <!-- Main hero unit for a primary marketing message or call to action -->
+	      <div class="hero-unit">
+	        <h1>AlivioStripe</h1>
+	        <p>Wearables for Physical Therapy</p>
+	      	<h1>All patients</h1>
+                <%= will_paginate %>
+		<table>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Patient record Created</th>
+			<th>email</th>
+			<th>Street</th>
+			<th>City</th>
+			<th>Budget</th>
+			<th>State</th>
+			<th>Country</th>
+			<th>Zip code</th>
+			<th>Insurance company</th>
+			<th></th>
+		</tr>
+		<% current_user.patients.each do |patient| %>
+		<tr>
+		<td><%= patient.firstName %></td>
+		<td><%= patient.lastName %></td>
+		<td><%= time_ago_in_words(patient.created_at) %> ago.</td>
+		<td><%= patient.email %></td>
+		<td><%= patient.addresssStreet %></td>
+		<td><%= patient.addresssCity %></td>
+		<td><%= patient.addresssState %></td>
+		<td><%= patient.addresssCountry %></td>
+		<td><%=patient.addresssZipcode%></td>
+		<td><%=patient.insuranceCompany%></td>
+		<td>
+			<%= link_to "delete", patient, :method => :delete,
+                        :confirm => "You sure?",
+                        :title => patient.firstName %>
+		</td>
+		
+		</tr>
+<% end %>
+</table>
+                <%= will_paginate %>
+	      </div>
+	</body>
+</html>

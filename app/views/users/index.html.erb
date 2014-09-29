@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>"contexto" | <%= @title %></title>
+	</head>
+	<body>
+		<div class="container">
+
+	      <!-- Main hero unit for a primary marketing message or call to action -->
+	      <div class="hero-unit">
+	        <h1>contexto</h1>
+	        <p>Wearable for Physical Therapy</p>
+	      	<h1>All users</h1>
+
+                <%= will_paginate %>
+
+                <ul>
+			<% @users.each do |user| %>
+			<%= render user %>
+			<% end %>
+		</ul>
+
+                <%= will_paginate %>
+	      </div>
+	</body>
+</html>

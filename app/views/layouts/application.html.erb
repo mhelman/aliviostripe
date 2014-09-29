@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>"Aliviostripe" | <%= @title %></title>
+		<%= csrf_meta_tag %>
+		<%= stylesheet_link_tag "bootstrap" %>
+		<%= javascript_include_tag "jquery", "rails"%>
+		<%= javascript_include_tag 'highcharts' %>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> 
+		
+	</head>
+	<body>
+		<%=render "layouts/navbar"%>
+		<%= yield %>
+		<%=render "layouts/footer"%>
+		<%= debug(params) if Rails.env.developement? %>
+	</body>
+</html>

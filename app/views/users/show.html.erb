@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>"contexto" | <%= @title %></title>
+	</head>
+	<body>
+		<div class="container">
+
+	      <!-- Main hero unit for a primary marketing message or call to action -->
+	      <div class="hero-unit">
+	        <h1>AlivioStripe</h1>
+	        <p>Wearable for Physical Therapy</p>
+	      	<div class="span8">
+                <% if @user.campaigns.any? %>
+                <h3>Campaigns (<%= @user.campaigns.count %>)</h3>
+                <ol class="microposts">
+                  <%= render @campaigns %>
+                </ol>
+                <%= will_paginate @campaigns %>
+                <% end %>
+  </div>
+	      </div>
+	</body>
+</html>
